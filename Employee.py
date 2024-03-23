@@ -31,7 +31,7 @@ class Employee:
         self.last = None
 
     def is_valid_email(self):
-        pattern = r"^[a-zA-Z0-9.]+@gmail.com$"
+        pattern = r"^[a-zA-Z0-9.]+@email.com$"
         if re.match(pattern, self.email):
             print("Your email is correct")
         else:
@@ -39,6 +39,7 @@ class Employee:
 
     def apply_raise(self):
         self.salary = int(self.salary * self.raise_amt)
+        return self.salary
 
     def display_info(self):
         print(f"Name: {self.fullname}\nID: {self.id}\nSalary: {self.apply_raise()}\nEmail: {self.email}")
@@ -50,6 +51,10 @@ class Developer(Employee):
     def __init__(self, first, last, id, salary, prog_lang):
         super().__init__(first, last, id, salary)
         self.prog_lang = prog_lang
+
+    def display_info(self):
+        super().display_info()
+        print(f"Prog: {self.prog_lang}")
 
 
 class Manager(Employee):
@@ -73,12 +78,10 @@ class Manager(Employee):
             print('-->', emp.fullname())
 
 
-dev_1 = Developer('Jack', 'Nash', 100, 30000, 'Python')
+dev_1 = Developer('Jack', 'Dodge', 100, 30000, 'Python')
 dev_2 = Developer('John', 'Smith', 102, 50000, 'Java')
 
 mgr_1 = Manager('Max', 'Joe', 303, 90000, [dev_1])
-
 emp1 = Employee('Jack', 'Nash', 100, 30000)
 
-dev_2.display_info()
-dev_1.apply_raise()
+mgr_1 .display_info()
