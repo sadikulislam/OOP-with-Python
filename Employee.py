@@ -9,10 +9,26 @@ class Employee:
         self.last = last
         self.id = id
         self.salary = salary
-        self.email = first + '.' + last + '@gmail.com'
 
+    @property
+    def email(self):
+        return f"{self.first}.{self.last}@email.com"
+
+    @property
     def fullname(self):
         return f'{self.first} {self.last}'
+
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+
+    @fullname.deleter
+    def fullname(self):
+        print('Delete the name')
+        self.first = None
+        self.last = None
 
     def is_valid_email(self):
         pattern = r"^[a-zA-Z0-9.]+@gmail.com$"
@@ -25,7 +41,7 @@ class Employee:
         self.salary = int(self.salary * self.raise_amt)
 
     def display_info(self):
-        print(f"Name: {self.fullname()}\nID: {self.id}\nSalary: {self.apply_raise()}\nEmail: {self.email}")
+        print(f"Name: {self.fullname}\nID: {self.id}\nSalary: {self.apply_raise()}\nEmail: {self.email}")
 
 
 class Developer(Employee):
@@ -60,10 +76,9 @@ class Manager(Employee):
 dev_1 = Developer('Jack', 'Nash', 100, 30000, 'Python')
 dev_2 = Developer('John', 'Smith', 102, 50000, 'Java')
 
-mgr_1 = Manager('Max', 'Joe', 303, 90000,[dev_1])
+mgr_1 = Manager('Max', 'Joe', 303, 90000, [dev_1])
 
-print(mgr_1.email)
-mgr_1.add_employee(dev_2)
-mgr_1.remove_employee(dev_1)
-mgr_1.print_employees()
+emp1 = Employee('Jack', 'Nash', 100, 30000)
 
+dev_2.display_info()
+dev_1.apply_raise()
