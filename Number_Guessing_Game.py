@@ -9,11 +9,15 @@ secret_number = random.randint(low, high)
 
 def guess_number():
     while True:
-        guess = int(input(f"Guess a number between {low} and {high}: "))
-        if low <= guess <= high:
-            return guess
-        else:
-            print("Invalid input. Please enter a number within the specified range.")
+        try:
+            guess = int(input(f"Guess a number between {low} and {high}: "))
+            if low <= guess <= high:
+                return guess
+            else:
+                print("Invalid input. Please enter a number within the specified range.")
+
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 
 def check_guess(guess, secret_number):
