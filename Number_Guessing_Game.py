@@ -10,7 +10,7 @@ secret_number = random.randint(low, high)
 def guess_number():
     while True:
         try:
-            guess = int(input(f"Guess a number between {low} and {high}: "))
+            guess = int(input(f"==> Guess a number between {low} and {high}: "))
             if low <= guess <= high:
                 return guess
             else:
@@ -49,4 +49,5 @@ def play_game():
         print(f"Sorry, you ran out of attempts! The secret number is {secret_number}.")
 
 
+print("<==============> Welcome to the Number Guessing Game! <=================>")
 play_game()
