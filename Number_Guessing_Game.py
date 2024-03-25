@@ -1,7 +1,7 @@
 import random
 
 low = 1
-high = 10
+high = 100
 max_attempts = 10
 
 secret_number = random.randint(low, high)
