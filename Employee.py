@@ -78,10 +78,15 @@ class Manager(Employee):
             print('-->', emp.fullname())
 
 
-dev_1 = Developer('Jack', 'Dodge', 100, 30000, 'Python')
-dev_2 = Developer('John', 'Smith', 102, 50000, 'Java')
+if __name__ == '__main__':
+    emp_1 = Employee('Jack', 'Nash', 101, 30000)
+    emp_2 = Employee('Robert', 'Henry', 102, 30000)
 
-mgr_1 = Manager('Max', 'Joe', 303, 90000, [dev_1])
-emp1 = Employee('Jack', 'Nash', 100, 30000)
+    dev_1 = Developer('Jack', 'Dodge', 201, 50000, 'Python')
+    dev_2 = Developer('John', 'Smith', 202, 40000, 'Java')
 
-mgr_1 .display_info()
+    mgr_1 = Manager('Max', 'Joe', 303, 45000, [dev_1])
+
+    emp_1.display_info()
+    dev_1.display_info()
+    mgr_1.display_info()
