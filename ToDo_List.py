@@ -16,7 +16,7 @@ class Task:
 
     def __str__(self):
         status = 'Completed' if self.completed else 'Incomplete'
-        return f'Task {self.name}\nDescription: {self.description}\nStatus: {status}'
+        return f'\nTask Name: {self.name}\nDescription: {self.description}\nStatus: {status}'
 
 
 class ToDo_List:
@@ -55,7 +55,7 @@ class ToDo_List:
             print("No tasks found")
         else:
             for index, task in enumerate(self.task_list):
-                print(f"{index}. {task}")
+                print(f"Task no: {index} {task}")
         print()
 
 
@@ -67,6 +67,7 @@ t1.display_tasks()
 t1.mark_task_completed(0)
 
 t1.edit_task(0,"Update task 1", "Task completed.")
+t1.display_tasks()
 t1.mark_task_completed(0)
 t1.display_tasks()
 t1.remove_task(0)
