@@ -49,5 +49,6 @@ def play_game():
         print(f"Sorry, you ran out of attempts! The secret number is {secret_number}.")
 
 
-print("<==============> Welcome to the Number Guessing Game! <=================>")
-play_game()
+if __name__ == "__main__":
+    print("<==============> Welcome to the Number Guessing Game! <=================>")
+    play_game()
